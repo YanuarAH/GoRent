@@ -27,7 +27,7 @@
         </div>
         
         <nav class="hidden md:flex items-center space-x-6">
-            <a href="#" class="font-medium">Home</a>
+            <a href="/" class="font-medium">Home</a>
             <a href="#" class="font-medium">Vehicles</a>
             <a href="#" class="font-medium">Details</a>
             <a href="#" class="font-medium">About Us</a>
@@ -35,10 +35,11 @@
         </nav>
         
         <div class="flex items-center">
-            <button type="button" class="hidden md:flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                Login
-            </button>
-            
+            <a href="{{ route('login') }}">
+                <button type="button" class="hidden md:flex items-center text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                    Login
+                </button>
+            </a>
             <button class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
