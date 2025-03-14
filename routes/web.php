@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MobilController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,10 +21,13 @@ Route::middleware('auth')->group(function () {
 use App\Http\Controllers\VehicleController;
 
 // Route untuk menampilkan daftar kendaraan
-Route::get('/vehicles', [VehicleController::class, 'index']);
+// Route::get('/vehicles', [VehicleController::class, 'index']);
 
-// Route untuk menampilkan detail kendaraan
-Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
+// // Route untuk menampilkan detail kendaraan
+// Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
+Route::get('/vehicles', function () {
+    return view('vehicles.index');
+});
 Route::get('/about', function () {
     return view('about');
 });
@@ -31,4 +35,10 @@ Route::get('/booking', function () {
     return view('booking');
 });
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('/details', function () {
+    return view('vehicles.details');
+});
+Route::get('/booking', function () {
+    return view('booking.availablecar');
+});
 require __DIR__.'/auth.php';

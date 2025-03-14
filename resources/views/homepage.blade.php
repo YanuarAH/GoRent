@@ -627,7 +627,7 @@
                         <p class="text-sm text-gray-500">Sedan</p>
                     </div>
                     <div class="text-right">
-                        <p class="text-lg font-bold text-indigo-600">$25</p>
+                        <p class="text-lg font-bold text-indigo-600">Rp. 2.500.000</p>
                         <p class="text-xs text-gray-500">per day</p>
                     </div>
                 </div>
@@ -672,7 +672,7 @@
                         <p class="text-sm text-gray-500">Sedan</p>
                     </div>
                     <div class="text-right">
-                        <p class="text-lg font-bold text-indigo-600">$45</p>
+                        <p class="text-lg font-bold text-indigo-600">Rp. 3.500.000</p>
                         <p class="text-xs text-gray-500">per day</p>
                     </div>
                 </div>
@@ -717,7 +717,7 @@
                         <p class="text-sm text-gray-500">SUV</p>
                     </div>
                     <div class="text-right">
-                        <p class="text-lg font-bold text-indigo-600">$50</p>
+                        <p class="text-lg font-bold text-indigo-600">Rp. 4.500.000</p>
                         <p class="text-xs text-gray-500">per day</p>
                     </div>
                 </div>
