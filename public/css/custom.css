@@ -1,0 +1,38 @@
+/* public/css/custom.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7fafc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vehicle-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.vehicle-card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.vehicle-card p {
+    color: #4a5568;
+}
+
+.vehicle-card a {
+    color: #4299e1;
+    text-decoration: none;
+}
+
+.vehicle-card a:hover {
+    text-decoration: underline;
+}

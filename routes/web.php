@@ -16,5 +16,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+use App\Http\Controllers\VehicleController;
 
+// Route untuk menampilkan daftar kendaraan
+Route::get('/vehicles', [VehicleController::class, 'index']);
+
+// Route untuk menampilkan detail kendaraan
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
+Route::get('/about', function () {
+    return view('about');
+});
 require __DIR__.'/auth.php';
