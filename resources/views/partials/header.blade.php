@@ -23,9 +23,9 @@
         <nav class="hidden md:flex items-center space-x-6">
             <a href="/" class="font-medium">Home</a>
             <a href="{{ url('/vehicles') }}" class="font-medium">Vehicles</a>
-            <a href="#" class="font-medium">Details</a>
+            <a href="{{ url('/booking') }}" class="font-medium">Booking</a>
             <a href="{{ url('/about') }}" class="font-medium">About Us</a>
-            <a href="#" class="font-medium">Contact Us</a>
+            <a href="{{ url('/contact') }}" class="font-medium">Contact Us</a>
         </nav>
         
         <div class="flex items-center">

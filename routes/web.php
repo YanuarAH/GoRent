@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,4 +27,8 @@ Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.ind
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/booking', function () {
+    return view('booking');
+});
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 require __DIR__.'/auth.php';
