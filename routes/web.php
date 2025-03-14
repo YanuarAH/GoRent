@@ -25,9 +25,9 @@ Route::get('/vehicles', function () {
     return view('vehicles.index');
 })->name('vehicles');
 
-Route::get('/vehicles/{id}', function ($id) {
-    return view('vehicle.details', ['id' => $id]); // Menampilkan detail kendaraan
-})->name('vehicle.details');
+Route::get('/details', function () {
+    return view('vehicles.details'); // Menampilkan detail kendaraan
+})->name('details');
 
 Route::get('/booking', function () {
     return view('booking.availablecar');
