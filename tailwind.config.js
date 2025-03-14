@@ -3,6 +3,7 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    mode : 'jit',
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -28,7 +29,7 @@ export default {
                     900: "#312e81",
                     950: "#1e1b4b",
                   },
-                  amber: {
+                amber: {
                     50: "#fffbeb",
                     100: "#fef3c7",
                     200: "#fde68a",
@@ -41,6 +42,8 @@ export default {
                     900: "#78350f",
                     950: "#451a03",
                   },
+                
+                navyblue: "#0A1828",
                   
             }
         },
