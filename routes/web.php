@@ -2,12 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\MobilController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('home');
+Route::get('/', [VehicleController::class, 'homepagecar'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,16 +16,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-use App\Http\Controllers\VehicleController;
 
 // Route untuk menampilkan daftar kendaraan
-Route::get('/vehicles', function () {
-    return view('vehicles.index');
-})->name('vehicles');
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles');
 
-Route::get('/details', function () {
-    return view('vehicles.details'); // Menampilkan detail kendaraan
-})->name('details');
+// Route::get('/details', function () {
+//     return view('vehicles.details');
+// })->name('details');
+Route::get('/vehicles/{vehicle}', [VehicleController::class, 'detail'])->name('vehicles.details');
 
 Route::get('/booking', function () {
     return view('booking.availablecar');
