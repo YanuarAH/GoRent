@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\ShowdetailsController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +30,12 @@ Route::get('/vehicles/{vehicle}', [VehicleController::class, 'detail'])->name('v
 Route::get('/booking', function () {
     return view('booking.availablecar');
 })->name('booking');
+
+Route::get('/car', [ShowController::class, 'index'])->name('show');
+Route::get('/car/show/{id}', [ShowdetailsController::class, 'index'])->name('showcar');
+// Route::get('/car', function () {
+//     return view('booking.show');
+// })->name('show');
 
 Route::get('/about', function () {
     return view('about');

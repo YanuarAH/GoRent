@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen bg-gray-100 py-12">
-    <div class="max-w-2xl mx-auto px-4">
+    <div class="text-center max-w mx-auto px-4">
         <!-- Header -->
         <h1 class="text-3xl font-bold text-center mb-8">Search Available Cars</h1>
         
@@ -34,14 +33,12 @@
                 </div>
                 
                 <!-- Search Button -->
-                <button 
-                    type="submit"
-                    class="w-full py-3 px-4 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-md transition duration-200"
-                >
+            <div class="flex items-baseline justify-between">
+                <a href="{{ route('show') }}" class="w-full py-3 px-4 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-md transition duration-200 text-center !important">
                     Search now
-                </button>
+                </a>
+            </div>
             </form>
         </div>
     </div>
-</div>
 @endsection

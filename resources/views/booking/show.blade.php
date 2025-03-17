@@ -2,26 +2,26 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center mb-8">Select a vehicle group</h1>
+    <h1 class="text-4xl font-bold text-center mb-8">Show Available Car</h1>
     
     <!-- Vehicle Type Filters -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <a href="{{ route('vehicles', ['type' => 'all']) }}" 
+        <a href="{{ route('show', ['type' => 'all']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'all' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             All vehicles
-        </a>
+        </a>    
         
-        <a href="{{ route('vehicles', ['type' => 'sedan']) }}" 
+        <a href="{{ route('show', ['type' => 'sedan']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'sedan' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
                 <circle cx="7" cy="17" r="2"></circle>
                 <circle cx="17" cy="17" r="2"></circle>
-            </svg>
+            </svg> 
             Sedan
         </a>
         
-        <a href="{{ route('vehicles', ['type' => 'city car']) }}" 
+        <a href="{{ route('show', ['type' => 'city car']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'city car' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -31,7 +31,7 @@
             City Car
         </a>
         
-        <a href="{{ route('vehicles', ['type' => 'pickup']) }}" 
+        <a href="{{ route('show', ['type' => 'pickup']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'pickup' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -41,7 +41,7 @@
             Pickup
         </a>
         
-        <a href="{{ route('vehicles', ['type' => 'suv']) }}" 
+        <a href="{{ route('show', ['type' => 'suv']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'suv' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -51,7 +51,7 @@
             SUV
         </a>
         
-        <a href="{{ route('vehicles', ['type' => 'minivan']) }}" 
+        <a href="{{ route('show', ['type' => 'minivan']) }}" 
            class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'minivan' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -118,7 +118,7 @@
                 </div>
             </div>
             
-            <a href="{{ route('vehicles.details', $vehicle->id) }}" class="block w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-center rounded-md font-medium transition duration-200">
+            <a href="{{ route('showcar', ['id' => $vehicle->id]) }}" class="block w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-center rounded-md font-medium transition duration-200">
                 View Details
             </a>
         </div>
@@ -132,4 +132,3 @@
     @endif
 </div>
 @endsection
-

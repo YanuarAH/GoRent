@@ -87,21 +87,25 @@
                      {{ ucfirst($suitsVehicle->condition) }}
                  </div>
                  <div class="flex items-center text-xs text-gray-500">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1">
-                         <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
-                         <path d="M20 12a8 8 0 1 0-16 0"></path>
-                         <path d="M12 12v-8"></path>
-                     </svg>
-                     26 l/h
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                     {{ ucfirst($suitsVehicle->year) }}
                  </div>
                  <div class="flex items-center text-xs text-gray-500">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1">
-                         <path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0"></path>
-                         <path d="M10 13V7h2"></path>
-                         <path d="M14 13V9h2"></path>
-                         <path d="M18 13V11h2"></path>
-                     </svg>
-                     Air Conditioner
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1">
+                        <circle cx="13.5" cy="6.5" r="4"></circle>
+                        <circle cx="19" cy="17" r="2"></circle>
+                        <circle cx="6" cy="17" r="2"></circle>
+                        <path d="M16 14h-5a2 2 0 0 0-1.95 1.55L8 19h8l-1.05-3.45A2 2 0 0 0 13 14Z"></path>
+                    </svg>
+                    <div 
+                        class="w-3 h-3 rounded-full mr-1.5 border border-gray-300" style="background-color: {{ strtolower($suitsVehicle->color) }};">
+                    </div>
+                     {{ ucfirst($suitsVehicle->color) }}
                  </div>
              </div>
              <a href="{{ route('vehicles.details', $suitsVehicle->id) }}" class="block w-full py-2 text-center bg-indigo-600 text-white rounded-md font-medium">View Details</a>
