@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShowController;
@@ -33,6 +34,14 @@ Route::get('/booking', function () {
 
 Route::get('/car', [ShowController::class, 'index'])->name('show');
 Route::get('/car/show/{id}', [ShowdetailsController::class, 'index'])->name('showcar');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/create', [AdminController::class, 'create'])->name('create');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('store');
+Route::get('/admin/edit', [AdminController::class, 'edit'])->name('edit');
+Route::put('/admin/update', [AdminController::class, 'update'])->name('update');
+Route::delete('/admin/destroy', [AdminController::class, 'destroy'])->name('destroy');
+
 // Route::get('/car', function () {
 //     return view('booking.show');
 // })->name('show');

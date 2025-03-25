@@ -60,13 +60,17 @@
          @foreach($randomVehicles as $suitsVehicle)
          <!-- Car 1 -->
          <div class="bg-gray-100 rounded-lg p-4">
-             <div class="bg-white rounded-lg p-6 mb-4">
-                 @if($suitsVehicle->image)
-                 <img src="{{ asset('images/vehicles/' . $suitsVehicle->image) }}" alt="{{ $suitsVehicle->brand }}" class="mx-auto h-24 object-contain">
-                 @else
-                 <img src="/placeholder.svg?height=120&width=240" alt="{{ $suitsVehicle->brand }}" class="mx-auto h-24 object-contain">
-                 @endif
-             </div>
+            <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
+                @if($suitsVehicle->image)
+                    <img src="{{ asset('storage/vehicles/' . basename($suitsVehicle->image)) }}" 
+                         alt="{{ $suitsVehicle->brand }}" 
+                         class="h-32 object-contain">
+                @else
+                    <img src="{{ asset('images/placeholder.svg') }}" 
+                         alt="No Image" 
+                         class="h-32 object-contain opacity-50">
+                @endif
+            </div>
              <div class="flex justify-between items-center mb-4">
                  <div>
                      <h3 class="font-semibold">{{ $suitsVehicle->brand }}</h3>
