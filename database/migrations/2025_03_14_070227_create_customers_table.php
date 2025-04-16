@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->primary()->constrained()->onDelete('cascade');
+            $table->string('name')->nullable();
             $table->string('nik')->nullable();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->timestamps();
         });
     }

@@ -103,7 +103,7 @@
                         <path d="M16 14h-5a2 2 0 0 0-1.95 1.55L8 19h8l-1.05-3.45A2 2 0 0 0 13 14Z"></path>
                     </svg>
                     <div 
-                        class="w-3 h-3 rounded-full mr-1.5 border border-gray-300" style="background-color: {{ strtolower($suitsVehicle->color) }};">
+                        class="w-3 h-3 rounded-full mr-1.5 border border-gray-300" style="background-color: {{ strtolower($suitsVehicle->color) }}">
                     </div>
                      {{ ucfirst($suitsVehicle->color) }}
                  </div>

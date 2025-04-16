@@ -7,27 +7,6 @@
     <form method="POST" action="{{ route('register') }}" class="w-full max-w-md space-y-6">
         @csrf
 
-        <!-- Name -->
-        <div class="relative">
-            <input id="name" 
-                class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" 
-                type="text" 
-                name="name" 
-                value="{{ old('name') }}" 
-                required 
-                autofocus 
-                autocomplete="name"
-                placeholder="Name" />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                class="w-5 h-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            @error('name')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
         <!-- Email Address -->
         <div class="relative">
             <input id="email" 

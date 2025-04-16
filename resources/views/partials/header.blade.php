@@ -19,7 +19,7 @@
             <a href="{{ route('vehicles') }}" class="font-bold {{ request()->routeIs('vehicles') ? 'text-black' : 'text-gray-700' }}">Vehicles</a>
             <a href="{{ route('about') }}" class="font-bold {{ request()->routeIs('about') ? 'text-black' : 'text-gray-700' }}">About Us</a>
             @if (Auth::check() && Auth::user()->role == 'customer')
-            <a href="{{ route('booking') }}" class="font-bold {{ request()->routeIs('booking') ? 'text-black' : 'text-gray-700' }}">Booking</a>
+            <a href="{{ route('booking.index') }}" class="font-bold {{ request()->routeIs('booking') ? 'text-black' : 'text-gray-700' }}">Booking</a>
             @endif
             <a href="{{ route('contact') }}" class="font-bold {{ request()->routeIs('contact') ? 'text-black' : 'text-gray-700' }}">Contact Us</a>
         </nav>
@@ -40,7 +40,7 @@
             <!-- Profile Dropdown -->
             <div class="relative" x-data="{ open: false }">
                 <button @click="open = !open" class="flex items-center space-x-2 focus:outline-none">
-                    <span class="font-bold">{{ Auth::user()->name }}</span>
+                    <span class="font-bold">{{ Auth::user()->customer->name }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -48,6 +48,7 @@
 
                 <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50" style="display: none;">
                     <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                    <a href="{{ route('customer.history') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</a>
                     <div class="border-t border-gray-100 my-1"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -79,7 +80,7 @@
                     <a href="{{ route('vehicles') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vehicles</a>
                     <a href="{{ route('about') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Us</a>
                     @if (Auth::check() && Auth::user()->role == 'customer')
-                    <a href="{{ route('booking') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Booking</a>
+                    <a href="{{ route('booking.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Booking</a>
                     @endif
                     <a href="{{ route('contact')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contact Us</a>
                 </div>

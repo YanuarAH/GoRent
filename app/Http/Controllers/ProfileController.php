@@ -28,16 +28,15 @@ class ProfileController extends Controller
     {
         $user = $request->user();
 
-        $user->fill($request->validated());
-
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
         }
 
         $user->save();
 
-        if ($user->role !== 'admin' && $request->hasAny(['nik', 'phone', 'address', 'gender'])) {
+        if ($user->role !== 'admin' && $request->hasAny(['name','nik', 'phone', 'address', 'gender'])) {
             $request->validate([
+                'name'=> 'nullable|string|max:255',
                 'nik' => 'nullable|string|unique:customers,nik,' . $user->id . ',user_id',
                 'phone' => 'nullable|string|max:15',
                 'address' => 'nullable|string',
@@ -46,6 +45,7 @@ class ProfileController extends Controller
 
             if (!$user->customer) {
                 $user->customer()->create([
+                    'name' => $request->name,
                     'nik' => $request->nik,
                     'phone' => $request->phone,
                     'address' => $request->address,
@@ -53,6 +53,7 @@ class ProfileController extends Controller
                 ]);
             } else {
                 $user->customer->update([
+                    'name' => $request->name,
                     'nik' => $request->nik,
                     'phone' => $request->phone,
                     'address' => $request->address,
