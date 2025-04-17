@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RentalController;
@@ -15,12 +16,31 @@ Route::get('/', [VehicleController::class, 'homepagecar'])->name('home');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    //rafi
+    Route::get('/car', [ShowController::class, 'index'])->name('show');
+    Route::get('/car/show/{id}', [ShowdetailsController::class, 'index'])->name('showcar');
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('create');
+    Route::post('/admin/store', [AdminController::class, 'store'])->name('store');
+    Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('edit');
+    Route::put('/admin/{vehicle}/update', [AdminController::class, 'update'])->name('update');
+    Route::delete('/admin/destroy/{vehicle}', [AdminController::class, 'destroy'])->name('destroy');
+
+});
+
+
 
 // Route untuk menampilkan daftar kendaraan
 Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles');

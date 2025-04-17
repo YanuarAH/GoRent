@@ -66,11 +66,22 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @foreach($vehicles as $vehicle)
         <div class="bg-gray-50 rounded-lg p-6">
-            <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
+            {{-- <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
                 @if($vehicle->image)
                     <img src="{{ asset('images/vehicles/' . $vehicle->image) }}" alt="{{ $vehicle->brand }}" class="h-32 object-contain">
                 @else
                     <img src="/placeholder.svg?height=120&width=240" alt="{{ $vehicle->brand }}" class="h-32 object-contain">
+                @endif
+            </div> --}}
+            <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
+                @if($vehicle->image)
+                    <img src="{{ asset('storage/vehicles/' . basename($vehicle->image)) }}" 
+                         alt="{{ $vehicle->brand }}" 
+                         class="h-32 object-contain">
+                @else
+                    <img src="{{ asset('images/placeholder.svg') }}" 
+                         alt="No Image" 
+                         class="h-32 object-contain opacity-50">
                 @endif
             </div>
             

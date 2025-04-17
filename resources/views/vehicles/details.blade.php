@@ -16,11 +16,15 @@
         <!-- Car Image Section -->
         <div>
             <!-- Main Car Image -->
-            <div class="bg-white rounded-lg p-4 mb-4">
+            <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
                 @if($vehicle->image)
-                <img src="{{ asset('images/vehicles/' . $vehicle->image) }}" alt="{{ $vehicle->brand }}" class="w-full h-auto object-contain">
+                    <img src="{{ asset('storage/vehicles/' . basename($vehicle->image)) }}" 
+                         alt="{{ $vehicle->brand }}" 
+                         class="h-32 object-contain">
                 @else
-                <img src="/placeholder.svg?" alt="{{ $vehicle->brand }}" class="w-full h-auto object-contain">
+                    <img src="{{ asset('images/placeholder.svg') }}" 
+                         alt="No Image" 
+                         class="h-32 object-contain opacity-50">
                 @endif
             </div>
 
