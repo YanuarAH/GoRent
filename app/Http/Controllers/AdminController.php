@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -49,8 +50,14 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', 'Vehicle added successfully.');
     }
 
-    public function edit(Vehicles $vehicle)
+    public function edit($id) // Menggunakan $id sebagai parameter route
     {
+        $vehicle = Vehicles::find($id); 
+
+        if (!$vehicle) {
+            return redirect()->route('admin')->with('error', 'Kendaraan tidak ditemukan.');
+        }
+
         return view('admin.edit', compact('vehicle'));
     }
 
@@ -63,40 +70,27 @@ class AdminController extends Controller
             'condition' => 'required',
             'year' => 'required|integer',
             'color' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'ready' => 'required',
+            'no_plat' => 'required',
         ];
-
-        // Jika admin memilih untuk mengubah nomor plat
-        if ($request->has('change_plate') && $request->change_plate) {
-            $rules['no_plat'] = 'required|string|unique:vehicles,no_plat,'.$vehicle->id;
-        } else {
-            // Pertahankan nomor plat lama
-            $request->merge(['no_plat' => $request->current_plate]);
-        }
-
-        $validatedData = $request->validate($rules);
-
-        // Handle gambar
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('vehicles', 'public');
-            $validatedData['image'] = 'vehicles/'.basename($imagePath);
-        }
-
-        $vehicle->update($validatedData);
-
-        return redirect()->route('admin')->with('success', 'Data kendaraan diperbarui');
+        
+        $requestData = $request->all();
+    
+        // PERUBAHAN: Periksa checkbox dengan benar
+        $vehicle->update($requestData);
+        return redirect()->route('admin')->with('success', 'Data kendaraan berhasil diperbarui');
     }
+        
     public function destroy(Vehicles $vehicle)
     {
-    try {
-        // Hapus gambar terkait jika ada        
-        $vehicle->delete();
-        
-        return redirect()->route('admin')
-               ->with('success', 'Vehicle deleted successfully.');
-    } catch (\Exception $e) {
-        return redirect()->back()
-               ->with('error', 'Failed to delete vehicle: '.$e->getMessage());
-    }
+        try {
+            $vehicle->delete();
+
+            return redirect()->back()->with('success', 'Vehicle deleted successfully');
+            } 
+            catch (\Exception $e) 
+            {
+            return redirect()->back()->with('error', 'Failed to delete vehicle: '.$e->getMessage());
+            }
     }
 }

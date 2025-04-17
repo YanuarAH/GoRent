@@ -38,9 +38,9 @@ Route::get('/car/show/{id}', [ShowdetailsController::class, 'index'])->name('sho
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::get('/admin/create', [AdminController::class, 'create'])->name('create');
 Route::post('/admin/store', [AdminController::class, 'store'])->name('store');
-Route::get('/admin/edit', [AdminController::class, 'edit'])->name('edit');
-Route::put('/admin/update', [AdminController::class, 'update'])->name('update');
-Route::delete('/admin/destroy', [AdminController::class, 'destroy'])->name('destroy');
+Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('edit');
+Route::put('/admin/{vehicle}/update', [AdminController::class, 'update'])->name('update');
+Route::delete('/admin/destroy/{vehicle}', [AdminController::class, 'destroy'])->name('destroy');
 
 // Route::get('/car', function () {
 //     return view('booking.show');

@@ -27,93 +27,80 @@
                     <div>
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium mb-2">Merek</label>
-                            <input type="text" name="brand" value="{{ old('brand', $vehicle->brand) }}" 
-                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="text" value="{{ $vehicle->brand }}" 
+                                   class="w-full px-4 py-2 border rounded-lg bg-gray-100" 
+                                   readonly>
+                            <!-- Tambahkan hidden input untuk menyimpan nilai brand -->
+                            <input type="hidden" name="brand" value="{{ $vehicle->brand }}">
                         </div>
-
+                        
                         <div class="mb-4">
-                            <label class="block text-gray-700">Nomor Plat Saat Ini</label>
+                            <label class="block text-gray-700">Nomor Plat</label>
                             <input type="text" value="{{ $vehicle->no_plat }}" 
                                    class="w-full px-4 py-2 border rounded-lg bg-gray-100" 
-                                   readonly
-                                   id="currentPlate">
+                                   readonly>
+                            <!-- Simpan nomor plat dalam hidden input -->
+                            <input type="hidden" name="no_plat" value="{{ $vehicle->no_plat }}">
                         </div>
                         
-                        <!-- Checkbox untuk opsi perubahan -->
-                        <div class="mb-4">
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" name="change_plate" id="changePlateCheckbox" 
-                                       class="form-checkbox h-5 w-5 text-indigo-600">
-                                <span class="ml-2 text-gray-700">Ubah Nomor Plat</span>
-                            </label>
-                        </div>
+                        <!-- Hapus bagian checkbox dan field nomor plat baru karena tidak bisa diedit -->
                         
-                        <!-- Field untuk nomor plat baru -->
-                        <div id="newPlateField" class="mb-4 hidden">
-                            <label class="block text-gray-700">Nomor Plat Baru</label>
-                            <input type="text" name="no_plat" 
-                                   class="w-full px-4 py-2 border rounded-lg"
-                                   placeholder="Masukkan nomor plat baru"
-                                   id="newPlateInput">
-                        </div>
-                        
-                        <!-- Input hidden untuk mempertahankan nilai lama -->
-                        <input type="hidden" name="current_plate" value="{{ $vehicle->no_plat }}">
-
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium mb-2">Tipe</label>
-                            <select name="type" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <option value="" disabled selected>Tipe Mobil</option>
-                        <option value="sedan" {{ old('type', $vehicle->type) == 'sedan' ? 'selected' : '' }}>Sedan</option>
-                        <option value="city car" {{ old('type', $vehicle->type) == 'city car' ? 'selected' : '' }}>City Car</option>
-                        <option value="suv" {{ old('type', $vehicle->type) == 'suv' ? 'selected' : '' }}>SUV</option>
-                        <option value="pickup" {{ old('type', $vehicle->type) == 'pickup' ? 'selected' : '' }}>Pickup</option>
-                        <option value="minivan" {{ old('type', $vehicle->type) == 'minivan' ? 'selected' : '' }}>Minivan</option>
-                            </select>
+                            <input type="text" value="{{ $vehicle->type }}" 
+                                   class="w-full px-4 py-2 border rounded-lg bg-gray-100" 
+                                   readonly>
+                            <!-- Tambahkan hidden input untuk menyimpan nilai type -->
+                            <input type="hidden" name="type" value="{{ $vehicle->type }}">
                         </div>
-
+                        
                         <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Tipe</label>
+                            <label class="block text-gray-700 font-medium mb-2">Status Ketersediaan</label>
                             <select name="ready" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 <option value="" disabled selected>Status Ketersediaan</option>
                                 <option value="1" {{ old('ready', $vehicle->ready) == '1' ? 'selected' : '' }}>Tersedia (1)</option>
                                 <option value="0" {{ old('ready', $vehicle->ready) == '0' ? 'selected' : '' }}>Tidak Tersedia (0)</option>
                             </select>
                         </div>
-                    </div>
-
-                    <!-- Kolom Kanan -->
-                    <div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Tahun Produksi</label>
-                            <input type="number" name="year" value="{{ old('year', $vehicle->year) }}" 
-                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         </div>
-
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Warna</label>
-                            <input type="text" name="color" value="{{ old('color', $vehicle->color) }}" 
-                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        
+                        <!-- Kolom Kanan -->
+                        <div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Tahun Produksi</label>
+                                <input type="text" value="{{ $vehicle->year }}" 
+                                       class="w-full px-4 py-2 border rounded-lg bg-gray-100" 
+                                       readonly>
+                                <!-- Tambahkan hidden input untuk menyimpan nilai year -->
+                                <input type="hidden" name="year" value="{{ $vehicle->year }}">
+                            </div>
+                        
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Warna</label>
+                                <input type="text" value="{{ $vehicle->color }}" 
+                                       class="w-full px-4 py-2 border rounded-lg bg-gray-100" 
+                                       readonly>
+                                <!-- Tambahkan hidden input untuk menyimpan nilai color -->
+                                <input type="hidden" name="color" value="{{ $vehicle->color }}">
+                            </div>
+                        
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Harga Sewa/Hari</label>
+                                <input type="number" name="price" value="{{ old('price', $vehicle->price) }}" 
+                                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                        
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Status</label>
+                                <select name="condition" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <option value="Normal" {{ old('condition', $vehicle->condition) == 'Normal' ? 'selected' : '' }}>Normal</option>
+                                    <option value="Service" {{ old('condition', $vehicle->condition) == 'Service' ? 'selected' : '' }}>Service</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Harga Sewa/Hari</label>
-                            <input type="number" name="price" value="{{ old('price', $vehicle->price) }}" 
-                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Status</label>
-                            <select name="condition" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <option value="Normal" {{ old('condition', $vehicle->condition) == 'Normal' ? 'selected' : '' }}>Normal</option>
-                                <option value="Service" {{ old('condition', $vehicle->condition) == 'Service' ? 'selected' : '' }}>Service</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Upload Gambar -->
-                <div class="mt-6">
+                {{-- <div class="mt-6">
                     <label class="block text-gray-700 font-medium mb-2">Foto Mobil</label>
                     <div class="flex items-center space-x-4">
                         @if($vehicle->image)
@@ -130,7 +117,7 @@
                         </div>
                     </div>
                     <p class="mt-1 text-sm text-gray-500">Format: JPEG, PNG, JPG (Maks. 2MB)</p>
-                </div>
+                </div> --}}
 
                 <!-- Tombol Aksi -->
                 <div class="mt-8 flex justify-end space-x-4">
