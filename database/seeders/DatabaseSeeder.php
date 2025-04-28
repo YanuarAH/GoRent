@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         
         $this->call([
             UserSeeder::class,
+            VehiclesSeeder::class,
+            AdminSeeder::class
             // Tambahkan seeder lain di sini jika ada
         ]);
     }
