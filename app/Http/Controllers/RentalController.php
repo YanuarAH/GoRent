@@ -152,6 +152,10 @@ class RentalController extends Controller
             $duration = $rentalDate->diffInDays($returnDate) + 1;
             $totalPayment = $vehicle->price * $duration;
 
+            $today = now()->format('Ymd');
+            $lastRental = Rental::orderBy('id', 'desc')->first();
+            $nextId = $lastRental ? $lastRental->id + 1 : 1;
+
             // Simpan data sewa
             $rental = Rental::create([
                 'user_id' => $user->id,
@@ -166,6 +170,8 @@ class RentalController extends Controller
                 'return_date' => $returnDate,
                 'total_payment' => $totalPayment,
                 'payment_status' => 'pending',
+                'payment_order_id' => 'ORD-' . $today. '-' . str_pad($nextId, 4, '0', STR_PAD_LEFT),
+
             ]);
 
             DB::commit();

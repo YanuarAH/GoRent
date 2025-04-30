@@ -49,7 +49,7 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
                                         @if($rental->vehicle->image)
-                                            <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('images/vehicles/' . $rental->vehicle->image) }}" alt="{{ $rental->vehicle->brand }}">
+                                            <img class="h-10 w-10 rounded-full object-cover" src="{{ asset('storage/vehicles/' . basename($rental->vehicle->image)) }}" alt="{{ $rental->vehicle->brand }}">
                                         @else
                                             <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-gray-400">

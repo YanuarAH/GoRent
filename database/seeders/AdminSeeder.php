@@ -17,7 +17,6 @@ class AdminSeeder extends Seeder
         User::firstOrCreate(
             ['email' => 'admin@example.com'], // Admin hanya dibuat jika belum ada
             [
-                'name' => 'Admin',
                 'password' => Hash::make('password123'),
                 'role' => 'admin',
             ]

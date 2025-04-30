@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
@@ -55,6 +56,10 @@ class VehicleController extends Controller
 
     public function homepagecar(Vehicles $vehicle)
     {
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return redirect()->route('admin');
+        }
+
         // Get random vehicles excluding the current one
         $randomVehicles = Vehicles::where('id', '!=', $vehicle->id)
             ->where('ready', true)

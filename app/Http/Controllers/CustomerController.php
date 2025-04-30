@@ -92,7 +92,7 @@ class CustomerController extends Controller
         }
     }
 
-    /*public function downloadReceipt($id)
+    public function downloadReceipt($id)
     {
         // Load rental beserta relasinya
         $rental = Rental::with(['vehicle', 'user'])->findOrFail($id);
@@ -115,5 +115,5 @@ class CustomerController extends Controller
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->download('rental_receipt_' . $rental->id . '.pdf');
-    }*/
+    }
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->dateTime('return_date');
             $table->decimal('total_payment', 10, 2);
             $table->enum('payment_status', ['pending', 'expired', 'paid', 'confirmed', 'completed', 'cancelled'])->default('pending');
-            $table->string('payment_order_id')->nullable();
+            $table->string('payment_order_id')->unique();
             $table->timestamps();
         });
     }

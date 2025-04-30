@@ -36,11 +36,11 @@
                 REGISTER
             </a>
             @else
-            @auth
+            @if (Auth::user()->customer)
             <!-- Profile Dropdown -->
             <div class="relative" x-data="{ open: false }">
                 <button @click="open = !open" class="flex items-center space-x-2 focus:outline-none">
-                    {{-- <span class="font-bold">{{ Auth::user()->admin->name }}</span> --}}
+                <span class="font-bold">{{ Auth::user()->customer->name }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
@@ -64,7 +64,7 @@
                 <a href="{{ route('login') }}" class="font-bold text-gray-600 hover:text-black py-2">Login</a>
                 <a href="{{ route('register') }}" class="font-bold bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Register</a>
             </div>
-            @endauth
+            @endif
 
             <!-- Mobile menu button -->
             <button class="md:hidden ml-4" x-data="{ open: false }" @click="open = !open">

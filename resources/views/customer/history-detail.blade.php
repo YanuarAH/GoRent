@@ -129,7 +129,7 @@
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/3 mb-4 md:mb-0 md:pr-6">
                             @if($rental->vehicle->image)
-                                <img src="{{ asset('images/vehicles/' . $rental->vehicle->image) }}" alt="{{ $rental->vehicle->brand }}" class="w-full rounded-lg">
+                                <img src="{{ asset('storage/vehicles/' . basename($rental->vehicle->image)) }}" alt="{{ $rental->vehicle->brand }}" class="w-full rounded-lg">
                             @else
                                 <img src="/placeholder.svg?height=200&width=300" alt="{{ $rental->vehicle->brand }}" class="w-full rounded-lg">
                             @endif

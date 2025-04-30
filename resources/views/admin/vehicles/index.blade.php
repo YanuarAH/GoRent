@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('title', 'Vehicle Management')
+@section('header', 'Vehicle Management')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
@@ -7,12 +10,12 @@
     <!-- Vehicle Type Filters -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
         <div class="flex flex-wrap justify-center gap-4 mb-4">
-            <a href="{{ route('admin', ['type' => 'all']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'all']) }}" 
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'all' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 All vehicles
             </a>
             
-            <a href="{{ route('admin', ['type' => 'sedan']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'sedan']) }}" 
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'sedan' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -22,7 +25,7 @@
                 Sedan
             </a>
             
-            <a href="{{ route('admin', ['type' => 'city car']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'city car']) }}" 
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'city car' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -32,7 +35,7 @@
                 City Car
             </a>
             
-            <a href="{{ route('admin', ['type' => 'pickup']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'pickup']) }}" 
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'pickup' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -42,7 +45,7 @@
                 Pickup
             </a>
             
-            <a href="{{ route('admin', ['type' => 'suv']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'suv']) }}" 
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'suv' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -52,7 +55,7 @@
                 SUV
             </a>
             
-            <a href="{{ route('admin', ['type' => 'minivan']) }}" 
+            <a href="{{ route('vehicles.manage.index', ['type' => 'minivan']) }}"
                class="inline-flex items-center px-6 py-2 rounded-full {{ $activeType === 'minivan' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                     <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"></path>
@@ -64,7 +67,7 @@
         </div>
     </div>
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <a href="{{ route('create') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition duration-200">
+        <a href="{{ route('vehicles.manage.create') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition duration-200">
             Tambah Kendaraan Baru
         </a>
     </div>
@@ -91,7 +94,7 @@
                     <p class="text-sm text-gray-500">{{ ucfirst($vehicle->type) }}</p>
                 </div>
                 <div class="text-right">
-                    <p class="text-xl font-bold text-indigo-600">{{ $vehicle->price }}</p>
+                    <p class="text-lg font-bold text-indigo-600">Rp {{ number_format($vehicle->price, 0, ',', '.') }}</p>
                     <p class="text-xs text-gray-500">per day</p>
                 </div>
             </div>
@@ -129,10 +132,10 @@
                 </div>
             </div>
             <div class="flex justify-between mt-4">
-                <a href="{{ route('edit', $vehicle->id) }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('vehicles.manage.edit', $vehicle->id) }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
                     Edit
                 </a>
-                <form action="{{ route('destroy', $vehicle->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this vehicle?');">
+                <form action="{{ route('vehicles.manage.destroy', $vehicle->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this vehicle?');">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
@@ -154,4 +157,3 @@
     @endif
 </div>
 @endsection
-

@@ -21,6 +21,7 @@ class Rental extends Model
         'return_date',
         'total_payment',
         'payment_status',
+        'payment_order_id'
     ];
 
     protected $casts = [
@@ -41,7 +42,11 @@ class Rental extends Model
 
     public function getDurationAttribute()
     {
-        return $this->rental_date->diffInDays($this->return_date) + 1; // +1 to include the rental day
+        if ($this->rental_date && $this->return_date) {
+            return $this->rental_date->diffInDays($this->return_date) + 1; // +1 to include the rental day
+        }
+
+        return null; // atau 0, tergantung mau dianggap apa kalau datanya belum lengkap
     }
 
     public function getCanBeCancelledAttribute()

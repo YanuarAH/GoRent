@@ -50,7 +50,7 @@
         <div class="bg-gray-50 rounded-lg p-6">
             <div class="bg-white rounded-lg p-6 mb-4 flex items-center justify-center">
                 @if($vehicle->image)
-                <img src="{{ asset('images/vehicles/' . $vehicle->image) }}" alt="{{ $vehicle->brand }}" class="h-32 object-contain">
+                <img src="{{ asset('storage/vehicles/' . basename($vehicle->image)) }}" alt="{{ $vehicle->brand }}" class="h-32 object-contain">
                 @else
                 <img src="/placeholder.svg?height=120&width=240" alt="{{ $vehicle->brand }}" class="h-32 object-contain">
                 @endif
