@@ -158,7 +158,6 @@ class CustomerManageController extends Controller
 
             $user->save();
 
-            // Update customer if exists
             if ($user->customer) {
                 $user->customer->name = $request->customer_name ?? $user->customer->name;
                 $user->customer->nik = $request->nik ?? $user->customer->nik;
