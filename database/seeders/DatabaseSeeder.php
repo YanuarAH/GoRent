@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             VehiclesSeeder::class,
             AdminSeeder::class
-            // Tambahkan seeder lain di sini jika ada
         ]);
     }
 }

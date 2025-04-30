@@ -16,7 +16,6 @@ class UserSeeder extends Seeder
     {
         // Contoh user admin
         DB::table('users')->insert([
-            'name' => 'rafi',
             'email' => 'rafi@example.com',
             'password' => Hash::make('password'), // Ganti 'password' dengan password yang lebih aman
             'remember_token' => Str::random(10),
@@ -28,7 +27,6 @@ class UserSeeder extends Seeder
 
         // Contoh user customer 1
         DB::table('users')->insert([
-            'name' => 'Customer One',
             'email' => 'customer1@example.com',
             'password' => Hash::make('secret'), // Ganti 'secret' dengan password yang lebih aman
             'remember_token' => Str::random(10),
@@ -40,7 +38,6 @@ class UserSeeder extends Seeder
 
         // Contoh user customer 2
         DB::table('users')->insert([
-            'name' => 'Customer Two',
             'email' => 'customer2@example.com',
             'password' => Hash::make('secure123'), // Ganti 'secure123' dengan password yang lebih aman
             'remember_token' => Str::random(10),
