@@ -253,21 +253,21 @@
                 <span class="text-sm font-medium text-gray-700">Add Vehicle</span>
             </a>
             
-            <a href="#" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+            <a href="{{ route('customers.manage.create') }}" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
                 <div class="p-3 rounded-full bg-green-100 text-green-500 mb-2">
                     <i class="fas fa-user-plus text-xl"></i>
                 </div>
                 <span class="text-sm font-medium text-gray-700">Add User</span>
             </a>
             
-            <a href="#" class="flex flex-col items-center justify-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+            <a href="{{ route('bookings.manage.create.user-selection') }}" class="flex flex-col items-center justify-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
                 <div class="p-3 rounded-full bg-purple-100 text-purple-500 mb-2">
                     <i class="fas fa-calendar-plus text-xl"></i>
                 </div>
                 <span class="text-sm font-medium text-gray-700">Create Booking</span>
             </a>
             
-            <a href="#" class="flex flex-col items-center justify-center p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors">
+            <a href="{{ route('bookings.manage.index', ['status'=>'pending']) }}" class="flex flex-col items-center justify-center p-4 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors">
                 <div class="p-3 rounded-full bg-yellow-100 text-yellow-500 mb-2">
                     <i class="fas fa-clock text-xl"></i>
                 </div>
@@ -276,11 +276,6 @@
         </div>
     </div>
 </div>
-
-@endsection
-
-@section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     // Monthly Revenue Chart
     const revenueCtx = document.getElementById('revenueChart').getContext('2d');
