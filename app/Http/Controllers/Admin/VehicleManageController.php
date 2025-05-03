@@ -128,7 +128,7 @@ class VehicleManageController extends Controller
         }
     
         $vehicle->update($validatedData);
-        return redirect()->route('admin.vehicles.index')->with('success', 'Vehicle updated successfully');
+        return redirect()->route('vehicles.manage.index')->with('success', 'Vehicle updated successfully');
     }
         
     public function destroy(Vehicles $vehicle)
